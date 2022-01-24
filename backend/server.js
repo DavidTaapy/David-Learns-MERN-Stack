@@ -6,8 +6,8 @@ import restaurants from "./api/restaurants.route.js"
 const app = express()
 
 // Apply Middleware
-app.use(cors)                   // Use CORS
-app.use(express.json())         // Body Parser in Older Versions - To Accept JSON in Requests
+app.use(cors())                     // Use CORS
+app.use(express.json())             // Body Parser in Older Versions - To Accept JSON in Requests
 
 // Creating Routes
 app.use("/api/v1/restaurants", restaurants)
