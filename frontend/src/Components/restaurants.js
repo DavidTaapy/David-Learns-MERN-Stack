@@ -79,9 +79,9 @@ const Restaurant = props => {
                                     <Link to = {{
                                         pathname: "/restaurants/" + props.match.params.id + "/review",
                                         state: {
-                                        currentReview: review
+                                            currentReview: review
                                         }
-                                    }} className="btn btn-primary col-lg-5 mx-1 mb-1">Edit</Link>
+                                    }} className = "btn btn-primary col-lg-5 mx-1 mb-1">Edit</Link>
                                     </div>                   
                                 }
                             </div>

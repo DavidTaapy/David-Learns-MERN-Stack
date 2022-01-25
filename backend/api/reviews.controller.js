@@ -6,7 +6,7 @@ export default class ReviewsController {
     static async apiPostReview(req, res, next) {
         try {
             // Get parameters from post request
-            const restaurantId = req.body.restaurantId
+            const restaurantId = req.body.restaurant_id
             const review = req.body.text
             const userInfo = {
                 name: req.body.name,
