@@ -64,45 +64,46 @@ export default class RestaurantsDAO {
     // Get restaurant by ID
     static async getRestaurantByID(id) {
         try {
-        const pipeline = [
-            {
-                $match: {
-                    _id: new ObjectId(id),
-                },
-            },
+            // Pipeline to get reviews for the specific restaurant
+            const pipeline = [
                 {
-                    $lookup: {
-                        from: "reviews",
-                        let: {
-                            id: "$_id",
-                        },
-                        pipeline: [
-                            {
-                                $match: {
-                                    $expr: {
-                                        $eq: ["$restaurant_id", "$$id"],
+                    $match: {
+                        _id: new ObjectId(id),
+                    },
+                },
+                    {
+                        $lookup: {
+                            from: "reviews",
+                            let: {
+                                id: "$_id",
+                            },
+                            pipeline: [
+                                {
+                                    $match: {
+                                        $expr: {
+                                            $eq: ["$restaurant_id", "$$id"],
+                                        },
                                     },
                                 },
-                            },
-                            {
-                                $sort: {
-                                    date: -1,
+                                {
+                                    $sort: {
+                                        date: -1,
+                                    },
                                 },
-                            },
-                        ],
-                        as: "reviews",
+                            ],
+                            as: "reviews",
+                        },
                     },
-                },
-                {
-                    $addFields: {
-                        reviews: "$reviews",
+                    {
+                        $addFields: {
+                            reviews: "$reviews",
+                        },
                     },
-                },
-            ]
-        return await restaurants.aggregate(pipeline).next()
+                ]
+            return await restaurants.aggregate(pipeline).next()
         } catch (e) {
-        console.error(`Something went wrong in getRestaurantByID: ${e}`)
-        throw e
+            console.error(`Something went wrong in getRestaurantByID: ${e}`)
+            throw e
         }
     }
 
@@ -110,11 +111,11 @@ export default class RestaurantsDAO {
     static async getCuisines() {
         let cuisines = []
         try {
-        cuisines = await restaurants.distinct("cuisine")
-        return cuisines
+            cuisines = await restaurants.distinct("cuisine")
+            return cuisines
         } catch (e) {
-        console.error(`Unable to get cuisines, ${e}`)
-        return cuisines
+            console.error(`Unable to get cuisines, ${e}`)
+            return cuisines
         }
     }
 }
