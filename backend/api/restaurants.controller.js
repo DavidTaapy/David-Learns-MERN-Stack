@@ -41,7 +41,7 @@ export default class RestaurantsController {
   // API for getting restaurant by ID
   static async apiGetRestaurantById(req, res, next) {
     try {
-      let id = req.params.id || {}
+      let id = req.params.id || {}    // Params is the information in the url after the slash of the standard url
       let restaurant = await RestaurantsDAO.getRestaurantByID(id)
       if (!restaurant) {
         res.status(404).json({ error: "Not found" })
