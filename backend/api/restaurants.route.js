@@ -8,6 +8,12 @@ const router = express.Router()
 // Setting up the default route
 router.route("/").get(RestaurantsCtrl.apiGetRestaurants)
 
+// Setting up the route for a restaurant by ID
+router.route("/id/:id").get(RestaurantsCtrl.apiGetRestaurantById)
+
+// Setting up the route for restaurants by cuisine
+router.route("/cuisines").get(RestaurantsCtrl.apiGetRestaurantCuisines)
+
 // Setting up the route for reviews
 router.route("/review")
     .post(ReviewsCtrl.apiPostReview)            // For handling post request
