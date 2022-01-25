@@ -1,9 +1,12 @@
 import mongodb from "mongodb"
 
+// Initialise variables
 const ObjectId = mongodb.ObjectId
 let restaurants
 
+// Export this class from the file
 export default class RestaurantsDAO {
+    // Inject database with documents from restaurants collection in the sample_restaurants database
     static async injectDB(conn) {
         if (restaurants) {
         return
@@ -11,18 +14,19 @@ export default class RestaurantsDAO {
         try {
         restaurants = await conn.db(process.env.RESTREVIEWS_NS).collection("restaurants")
         } catch (e) {
-        console.error(
-            `Unable to establish a collection handle in restaurantsDAO: ${e}`,
-        )
+        console.error(`Unable to establish a collection handle in restaurantsDAO: ${e}`,)
         }
     }
 
+    // Method to get restaurants based on 
     static async getRestaurants({
+        // Default Parameters
         filters = null,
         page = 0,
         restaurantsPerPage = 20,
     } = {}) {
         let query
+        // Setting up query based on filters
         if (filters) {
         if ("name" in filters) {
             query = { $text: { $search: filters["name"] } }
@@ -35,9 +39,9 @@ export default class RestaurantsDAO {
 
         let cursor
         
+        // Find restaurants that fit the query
         try {
-        cursor = await restaurants
-            .find(query)
+        cursor = await restaurants.find(query)
         } catch (e) {
         console.error(`Unable to issue find command, ${e}`)
         return { restaurantsList: [], totalNumRestaurants: 0 }
@@ -45,7 +49,8 @@ export default class RestaurantsDAO {
 
         // Skip to a specific page
         const displayCursor = cursor.limit(restaurantsPerPage).skip(restaurantsPerPage * page)
-
+        
+        // Return the restaurants found and number of restaurants found
         try {
             const restaurantsList = await displayCursor.toArray()
             const totalNumRestaurants = await restaurants.countDocuments(query)
@@ -56,6 +61,7 @@ export default class RestaurantsDAO {
         }
     }
 
+    // Get restaurant by ID
     static async getRestaurantByID(id) {
         try {
         const pipeline = [
@@ -100,6 +106,7 @@ export default class RestaurantsDAO {
         }
     }
 
+    // Get cuisines in the database
     static async getCuisines() {
         let cuisines = []
         try {

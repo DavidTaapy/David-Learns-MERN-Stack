@@ -13,7 +13,7 @@ const MongoClient = mongodb.MongoClient
 const port = process.env.PORT || 8000
 
 // Attempt to Connect to Database
-MongoClient.connect(
+MongoClient.connect(                                    // Attempt to connect to MongoDB Client
     process.env.RESTREVIEWS_DB_URI,
     {
         maxPoolSize: 50,
@@ -21,11 +21,11 @@ MongoClient.connect(
         useNewUrlParser: true
     }
 )
-.catch(err => {
+.catch(err => {                                         // If There Was An Error Connecting To MongoDB Client
     console.error(err.stack)
     process.exit(1)
 })
-.then(async client => {
+.then(async client => {                                 // Successfully Connected To MongoDB Client
     await RestaurantsDAO.injectDB(client)
     app.listen(port, () => {
         console.log(`Listening on Port ${port}!`)
