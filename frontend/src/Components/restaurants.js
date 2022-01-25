@@ -38,7 +38,7 @@ const Restaurant = props => {
             setRestaurant((prevState) => {
                 prevState.reviews.splice(index, 1)
                 return({
-                ...prevState
+                    ...prevState
                 })
             })
         })
