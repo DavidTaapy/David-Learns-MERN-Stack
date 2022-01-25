@@ -9,7 +9,7 @@ class RestaurantDataService {
 
     // Get restaurant by ID
     get(id) {
-        return http.get(`?id=${id}`);
+        return http.get(`/id/${id}`);
     }
 
     // Find restaurant by conditions - Either by name, zipcode or cuisine
