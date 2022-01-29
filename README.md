@@ -7,7 +7,7 @@ The following application was built to learn how to build a MERN (MongoDB, Expre
 - Look up all the available cuisines
 - Check the location of a selected restaurant
 
-![Picture of website](/snapshots/Sample.PNG)
+![Picture of website](/snapshots/Sample.png)
 
 ## Developing the application
 The application was developed using Insomnia for the API development to allow for quicker and easier testing of the REST requests directly!
