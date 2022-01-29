@@ -16,10 +16,13 @@ No custom CSS templates were used for this project, with all the styling done us
 ## Starting the application
 
 ### Backend
-Firstly, we have to start the server for the backend, by using the following command in the backend directory:
+The backend server is written using Node and Express! Mongodb was also used as the database management system! To start the server for the backend, use the following command in the backend directory:
 ```
 nodemon server
 ```
 
 ### Frontend
-
+The frontend of the application is written using Node and React! To run in the local machine, run the following command in the frontend directory:
+```
+npm start
+```
