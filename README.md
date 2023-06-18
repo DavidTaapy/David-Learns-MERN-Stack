@@ -14,6 +14,10 @@ The application was developed using Insomnia for the API development to allow fo
 
 ## Styling
 No custom CSS templates were used for this project, with all the styling done using bootstrap!
+
+## Features
+The project contains the following features:
+- Cloud hosting of database using MongoDB Atlas
  
 ## Starting the application
 
