@@ -9,6 +9,12 @@ The following application was built to learn how to build a MERN (MongoDB, Expre
 
 ![Picture of website](/snapshots/Sample.png)
 
+## Directory Description
+- **backend** contains the backend code for the MERN Application
+- **frontend** contains the frontend code for the MERN Application
+- **frontend with realm** contains the frontend code for the application hosted on MongoDB Realm
+- **realm code** contains the functions for the application hosted on MongoDB Realm
+
 ## Developing the application
 The application was developed using Insomnia for the API development to allow for quicker and easier testing of the REST requests directly!
 
