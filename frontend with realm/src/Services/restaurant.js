@@ -4,7 +4,7 @@ import http from "../http-common";
 class RestaurantDataService {
     // Get all restaurants
     getAll(page = 0) {
-        return http.get(`?page=${page}`);
+        return http.get(`restaurants?page=${page}`);
     }
 
     // Get restaurant by ID
@@ -14,7 +14,7 @@ class RestaurantDataService {
 
     // Find restaurant by conditions - Either by name, zipcode or cuisine
     find(query, by = "name", page = 0) {
-        return http.get(`?${by}=${query}&page=${page}`);
+        return http.get(`restaurants?${by}=${query}&page=${page}`);
     } 
 
     // Create review
