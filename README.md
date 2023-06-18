@@ -18,6 +18,7 @@ No custom CSS templates were used for this project, with all the styling done us
 ## Features
 The project contains the following features:
 - Cloud hosting of database using MongoDB Atlas
+- Using MongoDB Realm to host both the frontend and the backend of the webapp
  
 ## Starting the application
 
