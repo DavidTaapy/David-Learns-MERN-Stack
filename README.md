@@ -12,8 +12,6 @@ The following application was built to learn how to build a MERN (MongoDB, Expre
 ## Directory Description
 - **backend** contains the backend code for the MERN Application
 - **frontend** contains the frontend code for the MERN Application
-- **frontend with realm** contains the frontend code for the application hosted on MongoDB Realm
-- **realm code** contains the functions for the application hosted on MongoDB Realm
 
 ## Developing the application
 The application was developed using Insomnia for the API development to allow for quicker and easier testing of the REST requests directly!
@@ -24,7 +22,7 @@ No custom CSS templates were used for this project, with all the styling done us
 ## Features
 The project contains the following features:
 - Cloud hosting of database using MongoDB Atlas
-- Using MongoDB Realm to host both the frontend and the backend of the webapp
+- Web Application using MERN Stack
  
 ## Starting the application
 
